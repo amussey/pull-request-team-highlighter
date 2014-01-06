@@ -2,7 +2,6 @@ $("#load_json").click(function(){
     var loaded_json = {}
     try {
         loaded_json = JSON.parse($("#json_input").val());
-
     } catch (err) {
         alert("There was a problem loading the JSON!  Please double check your input for errors.");
     } finally {

@@ -23,12 +23,13 @@ This function is designed to be forgiving of rgba or rgb.
 It will throw away the alpha layer.
 */
 function rgbStringToHex(rgb) {
-    hexToRgbString(rgb);
+    rgbStringToHex(rgb);
 }
 
 function rgbaStringToHex(rgb) {
     var result = /^rgb[a]?\(([\d]+)[ \n]*,[ \n]*([\d]+)[ \n]*,[ \n]*([\d]+)[ \n]*,?[ \n]*([.\d]+)?[ \n]*\)$/i.exec(rgb);
-    return rgbToHex(result[1], result[2], result[3]);
+    console.log(result);
+    return rgbToHex(parseInt(result[1]), parseInt(result[2]), parseInt(result[3]));
 }
 
 function hexToRgb(hex) {
