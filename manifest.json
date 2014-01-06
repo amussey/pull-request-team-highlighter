@@ -1,0 +1,47 @@
+{
+  "name": "Github Pull Team Highlighter",
+  "version": "0.5.0",
+  "manifest_version": 2,
+  "description": "Highlight github pull requests from different people on your team with different colors.",
+  "icons": {
+    "128": "icon.png",
+    "256": "icon_256.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/jquery-1.10.2.min.js", "js/background.js"]
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://github.com/*",
+      "https://*.github.com/*",
+      "https://github.com/*",
+      "https://*.github.com/*"
+    ],
+    "js": [
+      "js/jquery-1.10.2.min.js",
+      "js/content_script.js"
+    ],
+    "run_at": "document_end"
+  }],
+  "permissions": [
+    "tabs",
+    "https://github.com/",
+    "https://*.github.com/",
+    "https://github.com/*",
+    "https://*.github.com/*",
+    "http://github.com/",
+    "http://*.github.com/",
+    "http://github.com/*",
+    "http://*.github.com/*"
+  ],
+  "web_accessible_resources": [
+    "js/username_highlighter.js",
+    "js/popup.js",
+    "js/load_team.js"
+  ]
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Load Team JSON :: Github Pull Team Highlighter</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/popup.css" rel="stylesheet">
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+
+    <script src="js/hexrgb.lib.js"></script>
+    <style>
+    textarea {
+        width: 600px;
+        height: 200px;
+        border: 3px solid #cccccc;
+        padding: 5px;
+        font-family: "Courier New", Courier, monospace;
+        background-image: url(bg.gif);
+        background-position: bottom right;
+        background-repeat: no-repeat;
+    }
+    </style>
+  </head>
+  <body>
+    Paste your team info JSON into the box below:<br />
+    <textarea name="json_input" id="json_input"></textarea>
+    <br /><br />
+    <input type="button" id="load_json" name="load_json" value="Load JSON">
+    <script src="js/load_team.js"></script>
+    <br /><br />
+    <h3>What do I put in the box?</h3>
+    You should paste into this box a JSON blob.  This blob should have three elements: The name of your team (<code>name</code>), a list of your team members (<code>members</code>), and the color you want to use to denote that team as either a hex string or an rgb/rgba string (<code>color</code>) Here is an example:
+    <br />
+    <pre>
+[
+    {
+        "name":"YOLO",
+        "members":["amussey","thegreenrobot"],
+        "color":"rgba(255, 255, 0, 0.37)"
+    },
+    {
+        "name":"Blue",
+        "members":["will","bill"],
+        "color":"#0000FF"
+    }
+]
+</pre>
+  </body>
+</html>
