@@ -22,11 +22,21 @@
       html {
         overflow: auto;
       }
+      #add_team_box {
+        margin-top:20px;
+      }
     </style>
   </head>
   <body>
     <a href="load_team.html" target="_blank">Load New Teams or Edit Current Teams</a>
     <div style="" id="loaded_teams"></div>
+    <div id="add_team_box">
+      Add a new team:
+
+      <div><input type="text" style="width:70%; float:left;" placeholder="Team name" id="add_team_text" name="add_team_text">
+      <input type="button" style="width:20%; float:right;" value="+ Add" id="add_team_button" name="add_team_button"></div>
+    </div>
+
     <script src="js/popup.js"></script>
   </body>
 </html>
