@@ -3,11 +3,14 @@ $("#load_json").click(function(){
     try {
         loaded_json = JSON.parse($("#json_input").val());
         localStorage["json"] = $("#json_input").val();
+        for (var team = 0; team < loaded_json.length; team++) {
+            for (var member = 0; member < loaded_json[team]["members"].length; member++) {
+                loaded_json[team]["members"][member] = $.trim(loaded_json[team]["members"][member]).toLowerCase();
+            }
+        }
         $("#json_input").val(
             JSON.stringify(
-                JSON.parse(
-                    $("#json_input").val()
-                ), null, 4));
+                loaded_json, null, 4));
         alert("JSON Loaded successfully!");
     } catch (err) {
         alert("There was a problem loading the JSON!  Please double check your input for errors.");

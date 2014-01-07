@@ -50,7 +50,12 @@ $(".team_members").change(function() {
     index_of_item = parseInt($(this).attr("team"))
     loaded_json = JSON.parse(localStorage["json"]);
     loaded_json[index_of_item]["members"] = $(this).val().split(",");
+    for(var current_member = 0; current_member < loaded_json[index_of_item]["members"].length; current_member++) {
+        loaded_json[index_of_item]["members"][current_member] = $.trim(loaded_json[index_of_item]["members"][current_member]).toLowerCase();
+    }
     localStorage["json"] = JSON.stringify(loaded_json);
+
+    $(this).val(loaded_json[index_of_item]["members"].join(","));
 
 
     var bg = chrome.extension.getBackgroundPage();

@@ -4,9 +4,12 @@ function hl(highlight_info) {
     username=$(".list-group-item-meta a.gravatar");
     for (var i = 0; i < username.length; i++) {
         for (var j = 0; j < highlight_info.length; j++) {
-            if (highlight_info[j]["members"].indexOf(username[i].href.split("/").last().toLowerCase()) > -1) {
-                $(".list-group-item-meta")[i].style.backgroundColor = highlight_info[j]["color"];
-                break;
+            current_username = username[i].href.split("/").last();
+            if (typeof current_username == "string") {
+                if (highlight_info[j]["members"].indexOf($.trim(current_username).toLowerCase()) > -1) {
+                    $(".list-group-item-meta")[i].style.backgroundColor = highlight_info[j]["color"];
+                    break;
+                }
             }
         }
     }
